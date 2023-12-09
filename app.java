@@ -22,7 +22,7 @@ public class app {
 
     public static void getData() throws Exception {
         char continue_code = 'y';
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader continue_buffer = new BufferedReader(new InputStreamReader(System.in));
         while (continue_code == 'y')
         {
             System.out.println("Input first name, last name, patronymic, birth date (in format of DD.MM.YYYY), phone number (number without delimeters) and gender (latin symbol m/f), divided by space symbol");
@@ -71,9 +71,9 @@ public class app {
                 throw new FileSystemException("There is an error working with file");
             }
             System.out.println("Continue input? (y/n)");
-            continue_code = scanner.next().charAt(0);
+            continue_code = continue_buffer.readLine().charAt(0);
         }
-        scanner.close();
+        continue_buffer.close();
     }
 }
 
